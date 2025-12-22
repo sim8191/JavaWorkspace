@@ -6,72 +6,124 @@ public class OperatorPractice1 {
 	Scanner sc = new Scanner(System.in);
 	
 	public void practice1() {
-		System.out.print("ÀÎ¿ø ¼ö : ");
+		System.out.print("ì¸ì› ìˆ˜ : ");
 		int person = sc.nextInt();
 		
-		System.out.print("»çÅÁÀÇ °³¼ö : ");
+		System.out.print("ì‚¬íƒ•ì˜ ê°œìˆ˜ : ");
 		int candys = sc.nextInt();
 		
-		System.out.println("1ÀÎ´ç »çÅÁ °³¼ö" + (person/candys));
-		System.out.println("³²Àº »çÅÁ °³¼ö" + (person%candys));
+		System.out.println("1ì¸ë‹¹ ì‚¬íƒ• ê°œìˆ˜" + (person/candys));
+		System.out.println("ë‚¨ì€ ì‚¬íƒ• ê°œìˆ˜" + (person%candys));
 		
 	}
 	
 	private void practice2() {
-		System.out.print("ÀÌ¸§ : ");
+		System.out.print("ì´ë¦„ : ");
 		String name = sc.next();
 		
-		System.out.print("ÇĞ³â : ");
+		System.out.print("í•™ë…„ : ");
 		int grade = sc.nextInt();
 		
-		System.out.print("¹İ : ");
+		System.out.print("ë°˜ : ");
 		int classes = sc.nextInt();
 		
-		System.out.print("¹øÈ£ : ");
+		System.out.print("ë²ˆí˜¸ : ");
 		int num = sc.nextInt();
 		
-		System.out.print("¼ºº° : ");//µÇµµ·Ï char·Î ¹Ş±â
+		System.out.print("ì„±ë³„ : ");//ë˜ë„ë¡ charë¡œ ë°›ê¸°
 		char ch = sc.next().charAt(0);
 		
-		System.out.print("¼ºÀû : ");
+		System.out.print("ì„±ì  : ");
 		double d = sc.nextDouble();
 		
-		System.out.println(grade+"ÇĞ³â "+classes+"¹İ "+
-				num + "¹ø "+name+(ch == 'M'?"³²ÇĞ»ı":"¿©ÇĞ»ı")+"ÀÇ ¼ºÀûÀº "+d+"ÀÌ´Ù.");
+		System.out.println(grade+"í•™ë…„ "+classes+"ë°˜ "+
+				num + "ë²ˆ "+name+(ch == 'M'?"ë‚¨í•™ìƒ":"ì—¬í•™ìƒ")+"ì˜ ì„±ì ì€ "+d+"ì´ë‹¤.");
 
 	}
 	
 	private void practice3() {
 		
-		System.out.println("³ªÀÌ");
+		System.out.println("ë‚˜ì´");
 		int age = sc.nextInt();
 		
-		String str = age <= 13 ? "¾î¸°ÀÌ":
-			(age <= 19 ? "Ã»¼Ò³â":"¼ºÀÎ");
+		String str = age <= 13 ? "ì–´ë¦°ì´":
+			(age <= 19 ? "ì²­ì†Œë…„":"ì„±ì¸");
 		System.out.println(str);
 	}
 	private void practice4() {
 		
-		System.out.println("±¹¾î : ");
+		System.out.println("êµ­ì–´ : ");
 		int kor = sc.nextInt();
-		System.out.println("¿µ¾î : ");
+		System.out.println("ì˜ì–´ : ");
 		int eng = sc.nextInt();
-		System.out.println("¼öÇĞ : ");
+		System.out.println("ìˆ˜í•™ : ");
 		int math = sc.nextInt();
 		
 		int sum = kor + eng + math;
 		double avg = sum/3.0;
-		System.out.println("ÇÕ°è : " + sum);
-		System.out.println("Æò±Õ : " + avg);
+		System.out.println("í•©ê³„ : " + sum);
+		System.out.println("í‰ê·  : " + avg);
 		
-		System.out.println(kor>=40&&eng>=40&&math>=40&&avg>=60?"ÇÕ°İ":"ºÒÇÕ°İ");
+		System.out.println(kor>=40&&eng>=40&&math>=40&&avg>=60?"í•©ê²©":"ë¶ˆí•©ê²©");
 	}
 	
 	private void practice5() {
-		System.out.println("ÁÖ¹Î¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä(-Æ÷ÇÔ) : ");
+		System.out.println("ì£¼ë¯¼ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”(-í¬í•¨) : ");
 		String str = sc.next();
 		char gender = str.charAt(7);
-		System.out.println(gender == '1'||gender == '3'?"³²ÀÚ":"¿©ÀÚ");
+		System.out.println(gender == '1'||gender == '3'?"ë‚¨ì":"ì—¬ì");
 		
+	}
+	
+	private void practice6() {
+		System.out.print("ìˆ«ì 1ë²ˆ : ");
+		int num1 = sc.nextInt();
+		
+		System.out.print("ìˆ«ì 2ë²ˆ : ");
+		int num2 = sc.nextInt();
+		
+		System.out.print("ìˆ«ì 3ë²ˆ : ");
+		int input = sc.nextInt();
+		
+		boolean result = input <= num1 && input > num2;
+		System.out.println(result);
+	}
+	
+	private void practice7() {
+		System.out.println("ì…ë ¥1 : ");
+		int num1 = sc.nextInt();
+		
+		System.out.println("ì…ë ¥2 : ");
+		int num2 = sc.nextInt();
+		
+		System.out.println("ì…ë ¥3 : ");
+		int num3 = sc.nextInt();
+		
+		boolean result = num1 == num2 && num2 == num3;
+		System.out.println("ì…ë ¥ : " + result);
+		
+	}
+	
+	public void practice8() {
+		System.out.print("Aì‚¬ì›ì˜ ì—°ë´‰ : ");
+		int salaryA = sc.nextInt();
+		System.out.print("Bì‚¬ì›ì˜ ì—°ë´‰ : ");
+		int salaryB = sc.nextInt();
+		System.out.print("Cì‚¬ì›ì˜ ì—°ë´‰ : ");
+		int salaryC = sc.nextInt();
+		
+		double inSalaryA = salaryA * 1.4;
+		double inSalaryB = salaryB * 1.0;
+		double inSalaryC = salaryA * 1.15;
+		
+		boolean resultA = (salaryA + inSalaryA)>=3000;
+		String A = resultA?"3000ì´ìƒ":"3000ë¯¸ë§Œ";
+		System.out.println("Aì‚¬ì›ì˜ ì—°ë´‰/ì—°ë´‰+a : "+salaryA+"/"+inSalaryA + "\n"+A);
+		boolean resultB = (salaryB + inSalaryB)>=3000;
+		String B = resultB ? "3000ì´ìƒ":"3000ë¯¸ë§Œ";
+		System.out.println("Aì‚¬ì›ì˜ ì—°ë´‰/ì—°ë´‰+a : "+salaryB+"/"+inSalaryB+ "\n"+B);
+		boolean resultC = (salaryC + inSalaryC)>=3000;
+		String C = resultC ? "3000ì´ìƒ":"3000ë¯¸ë§Œ";
+		System.out.println("Aì‚¬ì›ì˜ ì—°ë´‰/ì—°ë´‰+a : "+salaryC+"/"+inSalaryC + "\n"+C);
 	}
 }
