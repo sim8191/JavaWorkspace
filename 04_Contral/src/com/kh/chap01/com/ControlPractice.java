@@ -219,6 +219,12 @@ public class ControlPractice {
 		System.out.println("연산자 입력 : ");
 		char Operator = sc.next().charAt(0);
 		
+		if(num1 > 0 && num2 > 0 &&(Operator=='+'||Operator=='-'||Operator=='/'
+				||Operator=='*'||Operator=='%')) {
+			System.out.println("잘못 입력하셨습니다. 프로그램을 종료합니다.");
+			return;
+		}
+		
 		double sum = 0;
 		switch (Operator) {
 		case '+': {
@@ -242,7 +248,8 @@ public class ControlPractice {
 			break;
 		}
 		default:
-			sum =0;
+			System.out.println("잘못 입력하셨습니다. 프로그램을 종료합니다.");
+			return;
 		}
 		System.out.println(num1+""+ Operator +""+ num2 +" = " + sum );
 	}
@@ -250,10 +257,13 @@ public class ControlPractice {
 	public void practice9() {
 		System.out.println("중간 고사 점수 : ");
 		int num1 = sc.nextInt();
+		
 		System.out.println("기말 고사 점수 : ");
 		int num2 = sc.nextInt();
+		
 		System.out.println("과제 점수 : ");
 		int num3 = sc.nextInt();
+		
 		System.out.println("출석 점수 : ");
 		int num4 = sc.nextInt();
 		
@@ -263,16 +273,16 @@ public class ControlPractice {
 				(num3 * 0.3) + (num4 * 1.0);
 		
 		if( (20-num4) > (num5)) {
-			System.out.println("fail[출석 회수 부족("+ num4 +"/20)]");
+			System.out.println("Fail[출석 회수 부족("+ num4 +"/20)]");
 			return;
 		}
 		
+		System.out.println("중간 고사 점수 (20): "+(num1 * 0.2));
+		System.out.println("기말 고사 점수 (30): "+(num2 * 0.3));
+		System.out.println("과제 점수 (30): "+(num3 * 0.3));
+		System.out.println("출석 점수 (20): "+(num4 * 1.0));
+		System.out.println("총점 : "+totalScore);
 		if (totalScore>=70) {
-			System.out.println("중간 고사 점수 (20): "+(num1 * 0.2));
-			System.out.println("기말 고사 점수 (30): "+(num2 * 0.3));
-			System.out.println("과제 점수 (30): "+(num3 * 0.3));
-			System.out.println("출석 점수 (20): "+(num4 * 1.0));
-			System.out.println("총점 : "+totalScore);
 			System.out.println("PASS");
 		}else {
 			System.out.println("fail");
@@ -286,7 +296,7 @@ public class ControlPractice {
 				+"1. 메뉴 출력\n"+"2. 짝수/홀수\n"+
 				"3. 합격/불합격\n"+"4. 계절\n"+
 				"5. 로그인\n"+"6. 권한 확인\n"+
-				"7. BMI\n"+"8. 계산기\n"+"9. P/F\n");
+				"7. BMI\n"+"8. 계산기\n"+"9. P/F");
 		int num1 = sc.nextInt();
 		
 		switch (num1) {
@@ -323,20 +333,35 @@ public class ControlPractice {
 	}
 	
 	public void practice11() {
+		// 초기 값을 문자열로 받은 경우
+//		System.out.print("비밀 번호 입력 : ");
+//		String PWnum = sc.next();
+//		
+//		int num = Integer.parseInt(PWnum);
+//		
+//		if(num>=10000||num<1000) {
+//			System.out.println("자리 수 안 맞음");
+//			return;
+//		}
+//		int num1 = PWnum.charAt(0);
+//		int num2 = PWnum.charAt(1);
+//		int num3 = PWnum.charAt(2);
+//		int num4 = PWnum.charAt(3);
+
+		// 초기 값을 정수값으로 받은 경우
 		System.out.print("비밀 번호 입력 : ");
-		String PWnum = sc.next();
+		int PWnum = sc.nextInt();
 		
-		int num = Integer.parseInt(PWnum);
-		
-		if(num>=10000||num<=1000) {
-			System.out.println("자리수 안맞음");
+		if(PWnum>=10000||PWnum<1000) {
+			System.out.println("자리 수 안 맞음");
 			return;
 		}
 		
-		int num1 = PWnum.charAt(0);
-		int num2 = PWnum.charAt(1);
-		int num3 = PWnum.charAt(2);
-		int num4 = PWnum.charAt(3);
+		int num1 = PWnum/1000;
+		int num2 = num1/100;
+		int num3 = num2/10;
+		int num4 = num3%10;
+		
 		if((num1 == num2)||(num2 == num3)||(num3 == num4)||(num4 == num1)||(num2 == num4)||(num3 == num1)) {
 			System.out.println("중복값이 있음");
 		}else {
