@@ -7,7 +7,7 @@ public class Run {
 //		LP.practice2();
 //		LP.practice3();
 //		LP.practice4();
-		LP.practice5();
+//		LP.practice5();
 //		LP.practice6();
 //		LP.practice7();
 //		LP.practice8();

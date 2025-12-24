@@ -155,17 +155,23 @@ public class LoopPractice {
 		while (true) {
 			System.out.println("연산자(+, -, *, /, %) : ");
 			String str1 = sc.next();
-
+			char ch =str1.charAt(0);
+			
 			if (str1.equals("exit")) {
 				System.out.println("종료합니다.");
 				break;
 			}
-
+			
 			System.out.println("정수1 : ");
 			int num1 = sc.nextInt();
 			System.out.println("정수2 : ");
 			int num2 = sc.nextInt();
 
+			if(num2 == 0 &&(ch=='/'||ch=='%')) {
+				System.out.println("0으로 나눌수 없습니다.");
+				continue;
+			}
+			
 			double sum = 0;
 			switch (str1.charAt(0)) {
 			case '+': {
@@ -193,14 +199,14 @@ public class LoopPractice {
 				continue;
 			}
 			System.out.println(num1 + "" + str1 + "" + num2 + " = " + sum);
-
+			
 		}
-
 	}
 
 	public void practice8() {
 		System.out.println("정수 입력하세요 : ");
 		int num1 = sc.nextInt();
+		
 		for (int i = 0; i < num1; i++) {
 			for (int j = 0; j <= i; j++) {
 				System.out.print(" * ");
@@ -212,6 +218,7 @@ public class LoopPractice {
 	public void practice9() {
 		System.out.println("정수 입력하세요 : ");
 		int num1 = sc.nextInt();
+		
 		for (int i = 0; i < num1; i++) {
 			for (int j = num1; j > i; j--) {
 				System.out.print(" * ");
@@ -221,14 +228,15 @@ public class LoopPractice {
 	}
 
 	public void practice10() {
+		
 		System.out.println("정수 입력하세요 : ");
 		int num1 = sc.nextInt();
 
-		if (num1 <= 0) {
+		if (num1 <= 1) {
 			System.out.println("잘못 입력하셨습니다.");
 			return;
 		}
-
+		
 		if (!((num1 % 2 == 0) || (num1 % 3 == 0))) {
 			System.out.println("소수입니다.");
 		} else if ((num1 == 2) || (num1 == 3)) {
@@ -240,38 +248,68 @@ public class LoopPractice {
 	}
 
 	public void practice11() {
-		System.out.println("정수 입력하세요 : ");
-		int num1 = sc.nextInt();
-
-		if (num1 <= 1) {
+//		System.out.println("정수 입력하세요 : ");
+//		int num1 = sc.nextInt();
+//
+//		if (num1 <= 1) {
+//			System.out.println("잘못 입력하셨습니다.");
+//			return;
+//		}
+//		int cot = 0;
+//		for (int i = 2; i <= num1; i++) {
+//			if (!((i % 2 == 0) || (i % 3 == 0))) {
+//				System.out.println(i + " ");
+//				cot++;
+//			} else if ((i == 2) || (i == 3)) {
+//				System.out.println(i + " ");
+//				cot++;
+//			}
+//		}
+//		System.out.println("2부터" + num1 + "까지의 소수의 개수는 " + cot + "개입니다.");
+//	
+		
+		System.out.println("숫자 : ");
+		int num = sc.nextInt();
+		
+		if(num<2) {
 			System.out.println("잘못 입력하셨습니다.");
 			return;
 		}
-		int cot = 0;
-		for (int i = 2; i <= num1; i++) {
-			if (!((i % 2 == 0) || (i % 3 == 0))) {
-				System.out.println(i + " ");
-				cot++;
-			} else if ((i == 2) || (i == 3)) {
-				System.out.println(i + " ");
-				cot++;
+		
+		// 외부반복문 : 2~내가 입력한 값까지 반복.
+		// 내부반복문 : 현재 값이 소수인지 아닌지 판단.
+		int count = 0;
+		for(int i = 2;i<=num;i++) {
+			boolean isPrime = true;
+			for(int j = 0;j<=i;j++) {
+				if(i%j==0) {
+					isPrime = false;
+					break;
+				}
 			}
+			if(isPrime) {
+				count++;
+				System.out.print(i + " ");
+			}
+			
 		}
-		System.out.println("2부터" + num1 + "까지의 소수의 개수는 " + cot + "개입니다.");
+		
+		System.out.println("2부터 "+num+"짜지 소수의 개수는 "+count+"개 입니다.");
+		
 	}
 
 	public void practice12() {
-		System.out.println("정수 입력하세요 : ");
-		int num1 = sc.nextInt();
+		System.out.print("정수 입력하세요 : ");
+		int num = sc.nextInt();
 
-		if (num1 <= 1) {
-			System.out.println("잘못 입력하셨습니다.");
+		if (num <= 1) {
+			System.out.print("잘못 입력하셨습니다.");
 			return;
 		}
 		int cot1 = 0;
-		for (int i = 2; i <= num1; i++) {
+		for (int i = 2; i <= num; i++) {
 			if (((i % 2 == 0) || (i % 3 == 0))) {
-				System.out.print(" " + i);
+				System.out.print(i+" ");
 				if((i % 2 == 0) && (i % 3 == 0)) {
 					cot1++;
 				}
