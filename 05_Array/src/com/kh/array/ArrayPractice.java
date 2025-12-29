@@ -147,6 +147,9 @@ public class ArrayPractice {
 		for(int i = 0; i < str.length(); i++) {
 			chtest[i] = str.charAt(i);
 		}
+//		char[] arr = str.toCharArray();//문자열을 문자배열로 변경하는 매서드.
+//		위의 for문이랑 같은거임
+		
 		int count = 0;
 		System.out.print(str+"에 "+ch+"가 존재하는 위치 : ");
 		for(int i = 0; i < chtest.length; i++) {
@@ -164,6 +167,9 @@ public class ArrayPractice {
 		System.out.print("주민등록번호(-포함) : ");
 		String str = sc.next();
 		char[] ch = new char[str.length()];
+//		char[] origin = str.toCharArray();//원본 배열
+//		char[] copy = Arrays.copyOf(origin, origin.length);//복사본
+		
 		for(int i=0;i<str.length();i++) {
 			if(7<i) {
 				ch[i] = '*';
@@ -177,112 +183,259 @@ public class ArrayPractice {
 	}
 	
 	public void practice9() {
-		int[] num = new int[10];
-		for(int i = 0;i < num.length;i++) {
-			num[i] = (int)(Math.random()*10+1);
+//		int[] num = new int[10];
+//		for(int i = 0;i < num.length;i++) {
+//			num[i] = (int)(Math.random()*10+1);
+//		}
+//		for(int i = 0;i < num.length;i++) {
+//			System.out.print(num[i] + " ");
+//		}
+//		
+//		int max = 0, min = 10;
+//		for(int i = 0;i < num.length;i++) {
+//			if(max<num[i]) {
+//				max = num[i];
+//			}
+//			if(min>num[i]) {
+//				min = num[i];
+//			}
+//		}
+//		System.out.println("\n최대값 : " + max);
+//		System.out.println("최소값 : " + min);
+		
+		int[] arr = new int [10];
+		
+		for(int i = 0;i < arr.length;i++) {
+			arr[i] = (int)(Math.random()*10+1);
 		}
-		for(int i = 0;i < num.length;i++) {
-			System.out.print(num[i] + " ");
+		for(int i = 0;i < arr.length;i++) {
+			System.out.print(arr[i] + " ");
 		}
 		
-		int max = 0, min = 10;
-		for(int i = 0;i < num.length;i++) {
-			if(max<num[i]) {
-				max = num[i];
+		//최대값, 최소값
+		int max = arr[0], min = arr[0];
+		for(int i = 0;i < arr.length;i++) {
+			if(arr[i]>max) {
+				max = arr[i];
 			}
-			if(min>num[i]) {
-				min = num[i];
+			if(arr[i]<min) {
+				min = arr[i];
 			}
 		}
 		System.out.println("\n최대값 : " + max);
 		System.out.println("최소값 : " + min);
+		
 	}
 	
 	public void practice10() {
-		int[] num = new int[10];
-		int count = 0;
+//		int[] num = new int[10];
+//		int count = 0;
+//		
+//		loop1:
+//		while(count<10) {
+//			num[count] = (int)(Math.random()*10+1);
+//			for(int i = 0;i < count;i++) {
+//				if(num[count]==num[i]) {
+//					continue loop1;
+//				}
+//			}
+//			count++;
+//		}
+//		
+//		for(int i = 0;i < num.length;i++) {
+//			System.out.print(num[i] + " ");
+//		}
 		
-		loop1:
-		while(count<10) {
-			num[count] = (int)(Math.random()*10+1);
-			for(int i = 0;i < count;i++) {
-				if(num[count]==num[i]) {
-					continue loop1;
+		int[] arr = new int[10];
+		
+		for(int i = 0; i<arr.length; i++) {
+			arr[i] = (int)(Math.random()*10+1);
+			for(int j = 0;j<i;j++) {
+				if(arr[j]==arr[i]) {
+					i--;
+					break;
 				}
 			}
-			count++;
 		}
 		
-		for(int i = 0;i < num.length;i++) {
-			System.out.print(num[i] + " ");
+		for(int i = 0;i<arr.length;i++) {
+			System.out.println(arr[i] + " ");
 		}
+		
 	}
 	
 	public void practice11() {
+//		System.out.println("정수 : ");
+//		int num = sc.nextInt();
+//		if(num < 3||num%2==0) {
+//			System.out.println("다시 입력하세요.");
+//			practice11();
+//			return;
+//		}
+//		int[] num2 = new int[num];
+//		int count = 0;
+//		for(int i=0;i<num;i++) {
+//			if(i<((num/2)+1)) {
+//				num2[i] = ++count;
+//			}else {
+//				num2[i] = --count;
+//			}
+//		}
+//		for(int i=0;i<num2.length;i++) {
+//			System.out.print(num2[i] + " ");
+//		}
+		
 		System.out.println("정수 : ");
 		int num = sc.nextInt();
-		if(num < 3||num%2==0) {
-			System.out.println("다시 입력하세요.");
+		
+		if(!(num % 2 == 1 && num >= 3)) {
+			System.out.println("다시 입력");
 			practice11();
 			return;
 		}
-		int[] num2 = new int[num];
-		int count = 0;
-		for(int i=0;i<num;i++) {
-			if(i<((num/2)+1)) {
-				num2[i] = ++count;
+
+		int[] arr = new int[num];
+		int mid = num / 2;
+		
+		int value = 0;
+		for(int i=0;i<arr.length;i++) {
+			if(i<=mid) {
+				arr[i] = ++value;
 			}else {
-				num2[i] = --count;
+				arr[i] = --value;
 			}
 		}
-		for(int i=0;i<num2.length;i++) {
-			System.out.print(num2[i] + " ");
+		for(int i=0;i<arr.length;i++) {
+			System.out.print(arr[i] + " ");
 		}
 	}
 	
 	public void practice12() {
-//		System.arraycopy(origin, 0, copy, num2-num, num2);
-//		int[] copy = Arrays.copyOf(origin, 5)
-		int num = 0;
-		int num2 = 0;
-		char ch = 'n';
+		System.out.print("배열의 크기를 입력하세요 : ");
+		int size = sc.nextInt();
+		String[] origin = new String[size];
 		
-		System.out.println("배열의 크기를 입력하세요 : ");
-		num = sc.nextInt();
-		String[] origin = new String[num];
-		String[] copy = new String[num];
+		sc.nextLine(); // 개행문자 제거
 		
-		loop1:
+		for (int i=0;i<origin.length;i++) {
+			System.out.print((i + 1) + "번째 문자열 : ");
+			origin[i] = sc.nextLine();// 띄어쓰기 포함.
+		}
+		
 		while(true) {
 			//추가 입력시
-			if(!(num2 == 0)) {
-				System.out.println("추가 입력 개수");
-				num = sc.nextInt();
-			}
-			
-			int count = 0;
-			// 문자열 입력
-			while(count < num) {
-				System.out.println("문자열 : ");
-				origin[count++] = sc.next();
-			}
-			
-			num2 += num;// 
+			System.out.println("추가 입력을 하시겠습니까?");
+			char ch = sc.next().charAt(0);
 			
 			
-			//추가 입력 여부
-			System.out.println("더 값을 입력?");
-			ch = sc.next().charAt(0);
-			if(ch=='Y'||ch=='y') {
-				copy = Arrays.copyOf(origin, num2);
-				continue loop1;
-			}else {
+			if(ch == 'Y'||ch == 'y') {
+				System.out.print("더 입력하고 싶은 개수 : ");
+	            int addSize = sc.nextInt();
+	            sc.nextLine();
+	            
+	            int Psize = origin.length;
+	            
+	            origin = Arrays.copyOf(origin, origin.length + addSize);
+	            
+				for (int i=Psize;i<Psize+addSize;i++) {
+					System.out.print((i + 1) + "번째 문자열 : ");
+					origin[i] = sc.nextLine();
+				}
 				
+			}else {
+				System.out.println(Arrays.toString(origin));
 				break;
 			}
 		}
 		
-		
 	}
 	
+	public void upDown() {
+
+		int num1 = (int) ((Math.random() * 100 + 1));
+		int count = 1;
+		while (true) {
+			System.out.print("1~100사이의 난수를 맞춰보세요.");
+			int num2 = sc.nextInt();
+			if (num2 < 0 || 100 < num2) {
+				System.out.println("1~100사이의 숫자를 입력해주세요.");
+				continue;
+			}
+
+			if (num1 < num2) {
+				System.out.println("DOWN !");
+			} else if (num1 > num2) {
+				System.out.println("UP !");
+			} else {
+				System.out.println("정답입니다.");
+				System.out.println(count + "회만에 맞추셨습니다.");
+				break;
+			}
+			count++;
+		}
+	}
+
+	public void rps() {
+		System.out.print("당신의 이름을 입력해주세요 : ");
+		String name = sc.next();
+		
+		String rsp = "";
+		String comrsp = "";
+		
+		int some = 0, wins = 0, loss = 0, draw = 0;
+		
+		while (true) {
+			System.out.println("가위바위보 : ");
+			rsp = sc.next();
+			
+			if(rsp.equals("exit")) {
+				System.out.println(some+"전 "+ wins +"승 " + draw+"무 "+ loss+"패");
+				break;
+			}
+			
+			if(!(rsp.equals("가위")||rsp.equals("바위")||rsp.equals("보"))) {
+				System.out.println("잘못 입력하셨습니다");
+				continue;
+			}
+			
+			int random = 0;
+			while (true) {
+				random = (int)((Math.random()*10 + 1));
+				if(random == 10){
+					continue;
+				}else {
+					break;
+				}
+			}
+			
+			switch(random) {
+				case 1,2,3:{
+					comrsp="가위";
+					break;
+				}case 4,5,6:{
+					comrsp="바위";
+					break;
+				}default : {
+					comrsp="보";
+				}
+			}
+			
+			System.out.println("컴퓨터 : "+comrsp);
+			System.out.println(name+" : "+rsp);
+			some++;
+			if(comrsp.equals(rsp)){
+				System.out.println("비겼습니다.");
+				draw++;
+			}else if((comrsp.equals("가위")&&rsp.equals("바위"))||
+					(comrsp.equals("바위")&&rsp.equals("보"))||
+					(comrsp.equals("보")&&rsp.equals("가위"))){
+				System.out.println("이겼습니다.");
+				wins++;
+			}else {
+				System.out.println("졌습니다.");
+				loss++;
+			}
+		}
+	}
 }
+
