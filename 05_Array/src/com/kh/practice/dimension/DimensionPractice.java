@@ -53,32 +53,69 @@ public class DimensionPractice {
 	
 	public void practice4(){
 		int[][] rss = new int[4][4];
+		int[] rss2 = new int[4];
+		int rowSum = 0;
+		int columnSum = 0;
 		int sum = 0;
 		
 		for(int i = 0;i<rss.length-1;i++) {
-			for(int j = 0;j<rss.length-1;j++) {
-				System.out.println("rss["+i+"]["+j+"]");
-				rss[i][j] = sc.nextInt();
-				rss[rss.length-1][rss.length-1] = rss[i][j];
-			}
-		}
-		System.out.println("test");
-		for(int i = 0;i<rss.length;i++) {
-			for(int j = 0;j<rss[i].length;j++) {
-				if(j<(rss[i].length)-1) {
-					sum += rss[i][j];
-				}else {
-					rss[i][j] = sum;
+			rowSum = 0;
+			columnSum = 0;
+			for(int j = 0;j<rss.length;j++) {
+				if(i<rss.length-1&&j<rss[i].length-1) {
+					System.out.print("rss["+i+"]["+j+"] : ");
+					rss[i][j] = sc.nextInt();
+					rowSum += rss[i][j];
+				}
+				if(j == rss[i].length-1) {
+					rss[i][j] = rowSum;
 				}
 			}
+			sum += rowSum;
 		}
+		System.out.println();
 		
 		for(int i = 0;i<rss.length-1;i++) {
-			for(int j = 0;j<rss[i].length;j++) {
-				System.out.println();
+			rowSum = 0;
+			columnSum = 0;
+			for(int j = 0;j<rss.length;j++) {
+				if(i<rss.length-1&&j<rss[i].length-1) {
+					columnSum += rss[j][i];
+				}
+				if(j == rss[i].length-1) {
+					rss[j][i] = columnSum;
+				}
 			}
+			sum += columnSum;
+			rss[rss.length-1][rss.length-1] = sum;
+		}
+		
+		for(int i = 0;i<rss.length;i++) {
+			for(int j = 0;j<rss[i].length;j++) {
+				System.out.printf("%4d",rss[i][j]);
+			}
+			System.out.println();
 		}
 	}
+	
+	public void practice_4() {
+		int[][] arr = new int[4][4];
+		for(int i = 0;i<arr.length-1;i++) {
+			for(int j = 0;j<arr.length-1;j++) {
+				arr[i][j] = (int)(Math.random()*10+1);
+				arr[i][3] += arr[i][j];
+				arr[3][j] += arr[i][j];
+				arr[3][3] += arr[i][j]*2;
+			}
+		}
+		for(int i = 0;i<arr.length;i++) {
+			for(int j = 0;j<arr[i].length;j++) {
+				System.out.printf("%4d",arr[i][j]);
+			}
+			System.out.println();
+		}
+	}
+
 	
 	public void practice5(){
 		System.out.println("행 크기 : ");
@@ -105,8 +142,27 @@ public class DimensionPractice {
 			System.out.println();
 		}
 	}
+	
 	//숙제는 안해되됨
-	public void practice6(){}
+	public void practice6(){
+		String[][] strArr = new String[][] {{"이", "까", "왔", "앞", "힘"}, {"차", "지", "습", "으", "냅"}, {"원", 
+			"열", "니", "로", "시"}, {"배", "심", "다", "좀", "다"}, {"열", "히", "! ", "더", "!! "}};
+		for(int i = 0;i<strArr.length;i++) {
+			
+			for(int j = 0;j<strArr.length;j++) {
+				System.out.print(" " + strArr[i][j]);
+			}
+			System.out.println();
+		}
+		System.out.println();
+		for(int i = 0;i<strArr.length;i++) {
+			for(int j = 0;j<strArr[i].length;j++) {
+				System.out.print(" " + strArr[j][i]);
+			}
+			System.out.println();
+		}
+	}
+	
 	public void practice7(){}
 	public void practice8(){}
 	public void practice9(){}
