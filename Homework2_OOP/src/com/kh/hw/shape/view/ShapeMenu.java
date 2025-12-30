@@ -64,7 +64,7 @@ public class ShapeMenu {
 			}case 9: {
 				System.out.println("메인으로 넘어감");
 				inputMenu();
-				break;
+				return;
 			}
 			default:
 				System.out.println("잘못 입력하셨습니다.");
@@ -100,7 +100,7 @@ public class ShapeMenu {
 			}case 9: {
 				System.out.println("메인으로 넘어감");
 				inputMenu();
-				break;
+				return;
 			}
 			default:
 				System.out.println("잘못 입력하셨습니다.");
@@ -120,10 +120,12 @@ public class ShapeMenu {
 				System.out.print("너비 : ");
 				whidh = sc.nextDouble();
 				tcr.calcArea(height,whidh);
-				System.out.println("test");
+				System.out.println("삼각형 면적 : "+tcr.calcArea(height,whidh));
+//				
 				return;
 			}else if(menuNum == 2) {
 				//삼 색상 변경 호출
+				System.out.print("삼각형 새깔을 입력 : ");
 				color = sc.next();
 				tcr.paintColor(color);
 				return;
@@ -142,17 +144,19 @@ public class ShapeMenu {
 				height = sc.nextDouble();
 				System.out.print("너비 : ");
 				whidh = sc.nextDouble();
-				scr.calcPerimeter(height, whidh);
+				System.out.println("사각형 둘레 : "+scr.calcPerimeter(height, whidh));
 				return;
 			}else if(menuNum == 2) {
 				System.out.print("높이 : ");
 				height = sc.nextDouble();
 				System.out.print("너비 : ");
 				whidh = sc.nextDouble();
-				scr.calcArea(height,whidh);
+				System.out.println("사각형 면적 : "+scr.calcArea(height,whidh));
+				
 				return;
 			}else if(menuNum == 3) {
 				//사 색상 변경 호출
+				System.out.print("사각형 새깔을 입력 : ");
 				color = sc.next();
 				scr.paintColor(color);
 				return;
@@ -171,9 +175,9 @@ public class ShapeMenu {
 	
 	public void printlnformation(int type){
 		if(type == 3) {
-			
+			System.out.println(tcr.print());
 		}else {
-			
+			System.out.println(scr.print());
 		}
 	}
 	

@@ -18,8 +18,8 @@ public class Shape {
 	}
 	
 	public String information() {
-		String result = "";
-		return result;
+		
+		return this.color;
 	}
 	
 	//set get
@@ -42,5 +42,12 @@ public class Shape {
 	}
 	public double getWhidh() {
 		return this.whidh ;
+	}
+	
+	public void setColor(String color) {
+		this.color = color;
+	}
+	public String getColor() {
+		return color;
 	}
 }

@@ -6,20 +6,28 @@ import com.kh.hw.shape.model.vo.Shape;
 public class SquareController {
 	Shape sp = new Shape();
 	public double calcPerimeter(double height, double width) {
-		return height; 
+		double Perimeter = width*2+height*2;
+		sp.setHeight(height);
+		sp.setWhidh(width);
+		sp.setType(4);
+		return Perimeter; 
 	}
 	
 	public double calcArea(double height, double width) {
-		return height; 
+		sp.setHeight(height);
+		sp.setWhidh(width);
+		sp.setType(4);
+		return height*width; 
 	}
 	
 	public void paintColor(String color) {
-		
-		
+		sp.setColor(color);
 	}
 	
 	public String print() {
-		
-		return "";
+		String sPrint = "사각형 , height : "
+				+sp.getHeight()+", whide : "+sp.getWhidh()
+				+", 색상 : "+sp.information();
+		return sPrint;
 	}
 }
