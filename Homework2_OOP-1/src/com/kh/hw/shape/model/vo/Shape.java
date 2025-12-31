@@ -17,9 +17,10 @@ public class Shape {
 		this.whidh = whidh;
 	}
 	
+	
 	public String information() {
 		
-		return this.color;
+		return type+", " +height+ ", "+whidh+", "+color;
 	}
 	
 	//set get

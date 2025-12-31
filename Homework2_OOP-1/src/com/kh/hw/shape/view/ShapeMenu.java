@@ -15,30 +15,26 @@ public class ShapeMenu {
 	public void inputMenu() {
 		int type = 0;
 		while(true) {
-			System.out.println("도형 프로그램");
+			System.out.println("====도형 프로그램====");
 			System.out.println("3.삼각형");
 			System.out.println("4.사각형");
 			System.out.println("9.프로그램 종료");
 			type = sc.nextInt();
 			
-			if(!(type==3||type==4||type==9)) {
+			switch(type) {
+			case 3:{
+				triangleMenu();
+			}case 4:{
+				squareMenu();
+			}case 9:{
+				System.out.println("프로그램 종료");
+				return;
+			}default:{
 				System.out.println("잘못된 번호...다시입력해주세요.");
 				continue;
-			}else {
-				break;
+			}
 			}
 		}
-		
-		
-		if(type == 3) {
-			triangleMenu();
-		}else if(type == 4) {
-			squareMenu();
-		}else {
-			System.out.println("프로그램 종료");
-			return;
-		}
-			
 	}
 	
 	public void triangleMenu() {
@@ -59,7 +55,7 @@ public class ShapeMenu {
 				inputSize(type, num);
 				break;
 			}case 3: {
-				inputSize(type, num);
+				printlnformation(type);
 				break;
 			}case 9: {
 				System.out.println("메인으로 넘어감");
@@ -95,7 +91,7 @@ public class ShapeMenu {
 				inputSize(type, num);
 				break;
 			}case 4: {
-				inputSize(type, num);
+				printlnformation(type);
 				break;
 			}case 9: {
 				System.out.println("메인으로 넘어감");
@@ -129,9 +125,6 @@ public class ShapeMenu {
 				color = sc.next();
 				tcr.paintColor(color);
 				return;
-			}else if(menuNum == 3){
-				printlnformation(type);
-				return;
 			}else if(menuNum == 9) {
 				squareMenu();
 				return;
@@ -159,9 +152,6 @@ public class ShapeMenu {
 				System.out.print("사각형 새깔을 입력 : ");
 				color = sc.next();
 				scr.paintColor(color);
-				return;
-			}else if(menuNum == 4){
-				printlnformation(type);
 				return;
 			}else if(menuNum == 9) {
 				squareMenu();
