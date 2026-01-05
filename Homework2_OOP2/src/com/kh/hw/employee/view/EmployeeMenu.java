@@ -125,8 +125,14 @@ public class EmployeeMenu {
 
 
 	public void printEmp() {
-		System.out.println(ec.inform());
+		String inform = ec.inform();
+		if(inform != null) {
+			System.out.println(inform);
+		}else {
+			System.out.println("데이터가 없습니다.");
+		}
+		
 		return;
 	}
 }
-}
+

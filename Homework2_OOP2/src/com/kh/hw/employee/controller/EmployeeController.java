@@ -27,6 +27,7 @@ public class EmployeeController {
 	
 	public void modify(double bonus){ 
 		 // 받아온 매개변수를 이용하여 해당 정보 수정 
+		epl.setBonus(bonus);
 	} 
 	
 	public void Employee() {
@@ -42,6 +43,7 @@ public class EmployeeController {
 	
 	public String inform(){ 
 		 // 객체 e가 null이라면 null 반환, 아니라면 사원 정보 반환 
-		return"";
+		if(epl == null) return null;
+		return epl.toString();
 	}
 }
