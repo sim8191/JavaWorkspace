@@ -10,6 +10,7 @@ public class Employee {
 	private double bonus;
 	
 	public Employee() {
+		
 	}
 	
 	public Employee(int empNo, String name, char gender, 
@@ -89,10 +90,14 @@ public class Employee {
 		this.bonus = bonus;
 	}
 	
-
-	
-	public String printEmployee() {
-		
-		return "";
+	@Override
+	public String toString() {
+		return empNo + " " + name + " " + gender +" "+ phone +
+				" " + dept + " " + salary + " " + bonus;
 	}
+	
+//	public String printEmployee() {
+//		return empNo + " " + name + " " + gender +" "+ phone +
+//				" " + dept + " " + salary + " " + bonus;
+//	}
 }
