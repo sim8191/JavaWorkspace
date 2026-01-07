@@ -14,12 +14,14 @@ public class LibraryMenu {
 	public void mainMenu() {
 		System.out.print("이름 : ");
 		String name = sc.next();
+		
 		System.out.print("나이 : ");
 		int age = sc.nextInt();
+		
 		System.out.print("성별 : ");
 		char gender = sc.next().toUpperCase().charAt(0);
-		Member mb = new Member(name, age, gender, 0);
-		lc.insertMemver(mb);
+		Member mem = new Member(name, age, gender);
+		lc.insertMemver(mem);
 		
 		while(true) {
 			System.out.println("===메뉴===");
@@ -32,7 +34,8 @@ public class LibraryMenu {
 			num = sc.nextInt();
 			switch (num) {
 			case 1: {
-				System.out.println(lc.myinfo()); 
+				Member m = lc.myinfo();
+				System.out.println(m); 
 				break;
 			}case 2: {
 				selectAll();
@@ -56,8 +59,8 @@ public class LibraryMenu {
 	public void selectAll() {
 		Book[] bList = lc.selectAll();
         for (int i = 0; i < bList.length; i++) {
-            // 인덱스와 함께 출력 [cite: 71]
-            System.out.println(i + "번 도서 : " + bList[i]);
+            // 인덱스와 함께 출력
+            System.out.println(i + "번 도서 : " + bList[i]);//bList[i]의 toString 자동호출
         }
 	}
 	
@@ -85,7 +88,7 @@ public class LibraryMenu {
             System.out.println("성공적으로 대여되었습니다.");
         } else if (result == 1) {
             System.out.println("나이 제한으로 대여 불가능입니다.");
-        } else if (result == 2) {
+        } else {
             System.out.println("성공적으로 대여되었습니다. 요리학원 쿠폰이 발급되었으니 마이페이지에서 확인하세요.");
         }
 		

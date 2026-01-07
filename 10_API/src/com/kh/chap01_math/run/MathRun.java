@@ -14,13 +14,13 @@ public class MathRun {
 		double num1 = 4.349;
 		System.out.println("올림 : "+Math.ceil(num1)); // 4.4로 올림처리하려면?
 		System.out.println("올림 : "+Math.ceil(num1 * 10) / 10);
-		
+		//ceil 천장
 		// 반올림 => Math.round(double) : long
 		System.out.println("반올림 : " + Math.round(num1));
-		
+		//round 중간
 		// 버림 => Math.floor(double) : double
 		System.out.println("반올림 : " + Math.floor(num1));
-		
+		//floor 바닥
 		// 절대값 => 음수도 양수, 양수는 양수로 만드는 메서드
 		// Math.abs(int/double/long/float) : int/double/long/float
 		int num2 = -10;

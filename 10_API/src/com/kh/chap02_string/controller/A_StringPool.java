@@ -37,7 +37,7 @@ public class A_StringPool {
 	
 	// 2. 문자열 리터럴로 변수 초기화
 	public void method2() {
-		String str1 = new String("hello");//Heap에 저장
+		String str1 = new String("hello");//Heap(힙)에 저장
 		
 		String str2 = "hello";// 상수 pool에 저장
 		String str3 = "hello";// str2와 같은 주소값을 공유

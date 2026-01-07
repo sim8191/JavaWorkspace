@@ -25,36 +25,31 @@ public class LibraryController {
 	}
 	
 	public Book[] searchBook(String keyword) {
-		Book[] searchList = new Book[5]; // 결과 담을 배열 생성 [cite: 109]
-        int count = 0;
+		Book[] searchBookList = new Book[5]; // 결과 담을 배열 생성 [cite: 109]
+        int index = 0;
 
         for (Book b : bList) {
             // 책 제목에 키워드가 포함되어 있는지 확인 [cite: 112]
+//        	b.getTitle().contains(keyword) : b.getTitle()문자열에 keyword문자열이 포함되어 있으면 true 반환
             if (b.getTitle().contains(keyword)) {
-                searchList[count++] = b; // 담고 인덱스 증가
+                searchBookList[index++] = b; // 담고 인덱스 증가
             }
         }
-        return searchList;
+        return searchBookList;
 	}
 	
 	public int rentBook(int index) {
 		int result = 0;
-        Book selectBook = bList[index];
 
-        // 1. 만화책인 경우 [cite: 121]
-        if (selectBook instanceof AniBook) {
-            AniBook ani = (AniBook) selectBook; // 다운캐스팅
-            if (mem.getAge() < ani.getAccessAge()) {
-                result = 1; // 나이 제한 걸림 [cite: 123]
-            }
+        Book selectBook = bList[index];
+        // 1. 만화책인 경우
+        if (selectBook instanceof AniBook && mem.getAge() < ((AniBook) selectBook).getAccessAge()) {
+        	result = 1; // 나이 제한 걸림 [cite: 123]
         }
         // 2. 요리책인 경우 [cite: 125]
-        else if (selectBook instanceof CookBook) {
-            CookBook cook = (CookBook) selectBook; // 다운캐스팅
-            if (cook.isCoupon()) { // 쿠폰이 "유"일 경우
-                mem.setCouponCount(mem.getCouponCount() + 1); // 쿠폰 수 증가 [cite: 127]
-                result = 2; // 쿠폰 발급 성공 [cite: 129]
-            }
+        else if (selectBook instanceof CookBook && ((CookBook) selectBook).isCoupon()) {
+        	mem.setCouponCount(mem.getCouponCount() + 1); // 쿠폰 수 증가 [cite: 127]
+        	result = 2; // 쿠폰 발급 성공 [cite: 129]
         }
         
         return result;
