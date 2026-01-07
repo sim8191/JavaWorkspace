@@ -20,6 +20,7 @@ public class LeapController {
 //		long num1 = cal2.getTimeInMillis();
 		long num2 = c.getTimeInMillis();
 		return (num1 - num2)/1000/60/60/24;
+		// 여기에 반복문을 만들어야함
 	}
 
 	

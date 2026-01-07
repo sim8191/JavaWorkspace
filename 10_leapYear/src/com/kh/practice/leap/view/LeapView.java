@@ -23,11 +23,11 @@ public class LeapView {
 		long day = lc.leapDate(dDay);
 		
 		
-		if(bl == true) {
-			day += 366;
-		}else {
-			day += 365;
-		}
+//		if(bl == true) {
+//			day += 366;
+//		}else {
+//			day += 365;
+//		}leapDate에다가 만들어야함
 		
 		System.out.println("총 날짜 수 : " + day);
 	}
