@@ -7,7 +7,7 @@ import com.kh.chap05_class.model.vo.Book;
 
 public class Run {
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-		/*(Class : 객체를 만들기 위한 설계도)
+		/*(Class : 객체를 만들기 위한 설계도) //내가 작성할 일이 없음
 		 * 아래의 설명은 class란 이름의 class의 설명임
 		 * Class
 		 *  - 자바의 모든 클래스와 인터페이스는 컴파일 완료된 후 class파일로 생성된다.

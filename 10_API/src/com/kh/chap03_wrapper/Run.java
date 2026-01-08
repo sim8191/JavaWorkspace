@@ -3,7 +3,7 @@ package com.kh.chap03_wrapper;
 public class Run {
 	public static void main(String[] args) {
 		/*
-		 * Wrapper 클래스
+		 * Wrapper 클래스 (기본자료형일때 쓰지못하는 걸 쓰게 해줌)
 		 *  => 기본자료형을 객체로 포장(Wrapping)해주는 클래스를
 		 *  기본자료형  <-----> Wrapping 클래스
 		 * 	boolean          Boolean

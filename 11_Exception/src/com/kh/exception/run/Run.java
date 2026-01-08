@@ -1,6 +1,6 @@
 package com.kh.exception.run;
 
-import com.kh.exception.controller.A_UncheckedException;
+import com.kh.exception.controller.*;
 
 public class Run {
 	/*
@@ -30,10 +30,18 @@ public class Run {
 	 *   이 작동 중지 한다.
 	 *  
 	 * */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws C_CustomException {
 		
 		A_UncheckedException aue = new A_UncheckedException();
-		aue.method1();
+//		aue.method1();
+//		aue.method3();
+		
+		B_CheckedException bc = new B_CheckedException();
+		bc.method1();
+		
+		// 에러 강제 발생
+		// throw new 에러클래스 생성자(에러메세지):
+		throw new C_CustomException("에러 발생");
 	}
 	
 }

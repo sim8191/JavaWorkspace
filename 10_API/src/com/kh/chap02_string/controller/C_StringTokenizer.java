@@ -14,10 +14,10 @@ public class C_StringTokenizer {
 	
 		System.out.println(Arrays.toString(arr));
 		// 단점 성능에 좋지않음
-		// 문자열 길이에 따라서 성능이 달라짐
+		// 문자열 길이에 따라서 성능이 달라짐(속도록 메모리도 비효율적)
 		
 		
-		// 방법2. 분리된 각각의 문자열들을 토큰으로 취급하여 관리하는 방법
+		// 방법2. 분리된 각각의 문자열들을 토큰으로 취급하여 관리하는 방법(메모리친화적)
 		//      StringTokenizer stn = new StringTokenizer(문자열, 구분자);
 		StringTokenizer stn = new StringTokenizer(str, ",");
 		System.out.println("분리된 문자열의 개수 : " + stn.countTokens());
@@ -34,7 +34,7 @@ public class C_StringTokenizer {
 			System.out.println(stn.nextToken());
 		}
 		//단점 
-		// 메모리 많이 잡아먹음
+		// 특정부분만을 받아올수는 없음
 	
 	}
 }
