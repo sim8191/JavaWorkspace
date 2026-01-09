@@ -38,27 +38,33 @@ public class FileMenu {
 	public void fileSave(){
 		System.out.println("파일에 저장할 내용을 입력");
 		String name;
+		boolean tf;
 		while(true){
 			System.out.println("내용 : ");
 			String str = sc.next();
-			
-			if(str == "ex끝it") {
+			if(str.equals("ex끝it")) {
 				System.out.println("저장할 파일명을 입력해주세요(ex. myFile.txt) : ");
 				name = sc.next();
 				
 				if(fc.checkName(name)) {
-					System.out.println("저장된 파일이 있습니다.");
+					System.out.println("이미 존재하는 파일입니다. 덮어쓰시겠습니까? (y/n) : ");
+					char ch = sc.next().toUpperCase().charAt(0);
+					if(ch == 'N') {
+						fc.fileSave(name,sb);
+					}
 				}
-				
 				fc.fileSave(name,sb);
 				
 			}else {
 				sb.append(str);
+				continue;
 			}
+			break;
 			
 		}
 		 
 	}
+	
 	public void fileOpen(){
 		System.out.println("찾을 파일명 : ");
 		String name;

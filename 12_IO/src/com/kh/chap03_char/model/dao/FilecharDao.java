@@ -51,7 +51,7 @@ public class FilecharDao {
 			e.printStackTrace();
 		}finally {
 			try {
-				fr.close();
+				fr.close();//이거는 필수로 작성해야함
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
